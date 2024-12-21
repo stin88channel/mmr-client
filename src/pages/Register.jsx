@@ -26,7 +26,7 @@ export default function Register() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/account/signup",
+        "https://mmr-client.vercel.app//account/signup",
         {
           login,
           email,

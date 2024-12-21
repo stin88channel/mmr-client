@@ -51,7 +51,7 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/account/signin",
+        "https://mmr-client.vercel.app//account/signin",
         {
           login: data.login.trim(),
           password: data.password,
@@ -112,7 +112,7 @@ export default function Login() {
     try {
         // Отправка запроса на проверку кода 2FA
         const response = await axios.post(
-            "http://localhost:8000/account/verify-2fa",
+            "https://mmr-client.vercel.app//account/verify-2fa",
             { token: tokenString, userId: user._id }, // Передаем токен и ID пользователя
             {
                 withCredentials: true,
