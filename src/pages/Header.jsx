@@ -441,7 +441,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://mmr-client.vercel.app//account/logout"); // Отправка запроса на выход
+      await axios.post("http://mmr-client.vercel.app/account/logout"); // Отправка запроса на выход
       // Очистка состояния пользователя в контексте
       setUser(null); // Предполагается, что setUser   — это функция для обновления состояния пользователя
       // Перенаправление на страницу входа и обновление страницы
