@@ -19,7 +19,7 @@ import AllTables from "./components/AllTables";
 import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "../context/UserContext";
 
-axios.defaults.baseURL = "https://mmr-client.vercel.app/";
+axios.defaults.baseURL = "http://mmr-client.vercel.app/";
 axios.defaults.withCredentials = true;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

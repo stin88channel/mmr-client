@@ -281,7 +281,7 @@ const Header = () => {
         return; // Выходим из функции, чтобы не продолжать
       } else {
         const customUrl = uuidv4();
-        const fullCustomUrl = `https://mmr-client.vercel.app/payment/${customUrl}`;
+        const fullCustomUrl = `http://mmr-client.vercel.app/payment/${customUrl}`;
 
         console.log("Отправляемые данные:", {
           amount: amount,
@@ -441,7 +441,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("https://mmr-client.vercel.app//account/logout"); // Отправка запроса на выход
+      await axios.post("http://mmr-client.vercel.app//account/logout"); // Отправка запроса на выход
       // Очистка состояния пользователя в контексте
       setUser(null); // Предполагается, что setUser   — это функция для обновления состояния пользователя
       // Перенаправление на страницу входа и обновление страницы
@@ -1159,7 +1159,7 @@ const Header = () => {
                   {notification.image && (
                     <div className="notification_thumbnail">
                       <img
-                        src={`https://mmr-client.vercel.app/${notification.image}`}
+                        src={`http://mmr-client.vercel.app/${notification.image}`}
                         alt="Notification image"
                         className="thumbnail-image"
                       />
@@ -1202,7 +1202,7 @@ const Header = () => {
               {selectedNotification.image && (
                 <div className="notification-image-container">
                   <img
-                    src={`https://mmr-client.vercel.app/${selectedNotification.image}`}
+                    src={`http://mmr-client.vercel.app/${selectedNotification.image}`}
                     alt="Notification image"
                     className="modal_img"
                     onClick={(e) => {
@@ -1249,7 +1249,7 @@ const Header = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={`https://mmr-client.vercel.app/${selectedNotification.image}`}
+                src={`http://mmr-client.vercel.app/${selectedNotification.image}`}
                 alt="Fullscreen view"
                 className="fullscreen-image"
                 onClick={(e) => e.stopPropagation()}
