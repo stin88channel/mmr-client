@@ -1,0 +1,103 @@
+.transactions {
+  background-color: #0d0d0d;
+  padding: 40px 0;
+  margin: 0 auto;
+  width: 100%;
+  height: 750px;
+}
+
+.transactions-history-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+}
+
+.menu-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: #444;
+}
+
+.menu-button.active {
+  background-color: #4CAF50;
+}
+
+.section-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+
+.section-content.expanded {
+  max-height: 1000px;
+  /* Adjust this value based on your content */
+  opacity: 1;
+}
+
+.deposits-section,
+.topups-section,
+.statistics-section {
+  padding: 20px;
+  background-color: #222;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.deposit-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+}
+
+.deposit-amount {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.deposit-time,
+.deposit-date {
+  color: #999;
+}
+
+.deposits-loading,
+.deposits-error {
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+}
+
+.deposits-error {
+  color: #ff4444;
+}
+
+.deposit-details {
+  display: flex;
+  gap: 8px;
+  /* Это добавит пробел между датой и временем */
+  align-items: center;
+}
+
+.deposit-date::after {
+  content: " ";
+  /* Это добавит пробел после даты */
+  white-space: pre;
+  /* Это сохранит пробел */
+}
