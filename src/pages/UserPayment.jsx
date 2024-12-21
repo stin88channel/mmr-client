@@ -127,7 +127,7 @@ function UserPayments() {
     const formData = new FormData(form);
 
     // Генерация кастомного URL с использованием localhost:5173
-    const customUrl = `http://mmr-client.vercel.app/payment/${uuidv4()}`; // Используйте uuid для уникальности
+    const customUrl = `https://mmr-client.vercel.app/payment/${uuidv4()}`; // Используйте uuid для уникальности
 
     // Создаем новый объект реквизита
     const newOption = {
