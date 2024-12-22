@@ -42,7 +42,7 @@ const PaymentPage = () => {
         }
 
         // Затем делаем запрос на сервер
-        const response = await axios.get("/api/payment-options", {
+        const response = await axios.get("/api/v1/payment-options", {
           withCredentials: true,
         });
 
@@ -110,7 +110,7 @@ const PaymentPage = () => {
       }
 
       const response = await axios.post(
-        `/api/confirm-payment/${paymentOption._id}`,
+        `/api/v1/confirm-payment/${paymentOption._id}`,
         { amount: amountToWithdraw },
         { withCredentials: true }
       );

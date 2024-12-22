@@ -48,7 +48,7 @@ const EditPaymentOptionForm = ({ option, onClose, onRefresh }) => {
     console.log("ID реквизита для обновления:", option._id);
   
     try {
-      const response = await axios.put(`/api/payment-options/${option._id}`, formData, {
+      const response = await axios.put(`/api/v1/payment-options/${option._id}`, formData, {
         withCredentials: true,
       });
   

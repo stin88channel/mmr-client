@@ -13,7 +13,7 @@ const TransactionsHistory = ({ showHeader = true }) => {
     const fetchDeposits = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get("/api/successful-deposits", {
+        const response = await axios.get("/api/v1/successful-deposits", {
           withCredentials: true,
         });
         setDeposits(response.data);

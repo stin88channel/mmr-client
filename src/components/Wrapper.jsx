@@ -38,7 +38,7 @@ const Wrapper = () => {
         const customUrl = `http://localhost:5173/payment/${uuidv4()}`; // Используйте uuid для уникальности
 
         const response = await axios.post(
-            "/api/create-payment-option",
+            "/api/v1/create-payment-option",
             {
                 amount: parseFloat(withdrawAmount),
                 customUrl: customUrl // Добавляем кастомный URL в запрос

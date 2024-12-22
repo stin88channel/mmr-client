@@ -140,7 +140,7 @@ const AllTables = () => {
       // Получаем userId из контекста пользователя
       const userId = user._id; // Предполагается, что user доступен в контексте
 
-      const response = await axios.get(`/api/applications?type=${type}`, {
+      const response = await axios.get(`/api/v1/applications?type=${type}`, {
         params: { userId }, // Передаем userId в качестве параметра запроса
       });
       setApplications(response.data);
@@ -300,7 +300,7 @@ const AllTables = () => {
     const fetchActiveApplications = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("/api/applications?type=active", {
+        const response = await axios.get("/api/v1/applications?type=active", {
           withCredentials: true,
         });
         console.log("Полученные активные заявки:", response.data); // Логируем данные
@@ -322,7 +322,7 @@ const AllTables = () => {
     const fetchClosedApplications = async () => {
       setLoading(true); // Устанавливаем состояние загрузки
       try {
-        const response = await axios.get("/api/applications?type=closed", {
+        const response = await axios.get("/api/v1/applications?type=closed", {
           withCredentials: true,
         });
         console.log("Полученные закрытые заявки:", response.data); // Логируем данные
@@ -343,7 +343,7 @@ const AllTables = () => {
     const fetchAllApplications = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("/api/applications?type=all", {
+        const response = await axios.get("/api/v1/applications?type=all", {
           withCredentials: true,
         });
         console.log("Полученные все заявки:", response.data); // Логируем данные

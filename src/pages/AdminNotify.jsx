@@ -53,7 +53,7 @@ function AdminNotify() {
                 hasImage: !!image
             });
     
-            const response = await axios.post('/api/notifications', formData, {
+            const response = await axios.post('/api/v1/notifications', formData, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data'

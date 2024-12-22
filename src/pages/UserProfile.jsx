@@ -29,7 +29,7 @@ export default function UserProfile() {
     const fetchUserData = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get("/api/user/settings", {
+        const response = await axios.get("/api/v1/user/settings", {
           withCredentials: true,
         });
         setUser(response.data); // Устанавливаем данные пользователя
@@ -60,7 +60,7 @@ export default function UserProfile() {
 
   const handleOpen2FAModal = async () => {
     try {
-      const response = await axios.get("/api/generate-2fa", {
+      const response = await axios.get("/api/v1/generate-2fa", {
         withCredentials: true,
       });
       setQrCodeUrl(response.data.qrCodeUrl);
@@ -103,7 +103,7 @@ export default function UserProfile() {
     try {
       // Проверка кода 2FA
       const response = await axios.post(
-        "/api/enable-2fa",
+        "/api/v1/enable-2fa",
         { token: tokenString, secret: twoFASecret }, // Отправляем токен и секрет
         { withCredentials: true }
       );
@@ -125,14 +125,14 @@ export default function UserProfile() {
 
     try {
       const response = await axios.post(
-        "/api/disable-2fa",
+        "/api/v1/disable-2fa",
         { token: fullToken }, // Передаем токен в теле запроса
         { withCredentials: true }
       );
       toast.success(response.data.message); // Сообщение об успешном отключении 2FA
 
       // Обновляем данные пользователя из базы данных
-      const userResponse = await axios.get("/api/user/settings", {
+      const userResponse = await axios.get("/api/v1/user/settings", {
         withCredentials: true,
       });
       setUser(userResponse.data); // Устанавливаем актуальные данные пользователя
@@ -198,7 +198,7 @@ export default function UserProfile() {
 
     try {
       const response = await axios.put(
-        "/api/user/change-password",
+        "/api/v1/user/change-password",
         {
           currentPassword,
           newPassword,

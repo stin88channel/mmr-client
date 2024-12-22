@@ -45,8 +45,8 @@ const Header = () => {
       // Параллельная загрузка данных
       const [balanceResponse, notificationsResponse, unreadResponse] =
         await Promise.all([
-          axios.get("/api/get-balance", { withCredentials: true }),
-          axios.get("/api/notifications", { withCredentials: true }),
+          axios.get("/api/v1/get-balance", { withCredentials: true }),
+          axios.get("/api/v1/notifications", { withCredentials: true }),
           axios.get("/user/settings", { withCredentials: true }),
         ]);
 
@@ -263,7 +263,7 @@ const Header = () => {
     console.log("Обработчик submit вызван");
 
     try {
-      const depositResponse = await axios.get("/api/successful-deposits", {
+      const depositResponse = await axios.get("/api/v1/successful-deposits", {
         withCredentials: true,
       });
       console.log("Ответ на запрос депозитов:", depositResponse.data);
@@ -289,7 +289,7 @@ const Header = () => {
         });
 
         const response = await axios.post(
-          "/api/create-payment-option",
+          "/api/v1/create-payment-option",
           {
             amount: amount,
             customUrl: fullCustomUrl,
@@ -346,7 +346,7 @@ const Header = () => {
 
     try {
       const response = await axios.post(
-        "/api/crypto/get-usdt-address",
+        "/api/v1/crypto/get-usdt-address",
         {},
         { withCredentials: true }
       );
@@ -441,7 +441,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("https://mmr-client.vercel.app/account/logout"); // Отправка запроса на выход
+      await axios.post("http://138.124.91.168:8000/account/logout"); // Отправка запроса на выход
       // Очистка состояния пользователя в контексте
       setUser(null); // Предполагается, что setUser   — это функция для обновления состояния пользователя
       // Перенаправление на страницу входа и обновление страницы
@@ -512,7 +512,7 @@ const Header = () => {
   const resetNotificationCounter = async () => {
     try {
       const response = await axios.post(
-        "/api/notifications/reset-counter",
+        "/api/v1/notifications/reset-counter",
         {},
         {
           withCredentials: true, // Важно для отправки cookies
@@ -550,7 +550,7 @@ const Header = () => {
       const newRubBalance = parsedUsdtBalance * 90;
 
       await axios.post(
-        "/api/update-balance",
+        "/api/v1/update-balance",
         {
           usdtBalance: parsedUsdtBalance,
           rubBalance: newRubBalance,
@@ -597,7 +597,7 @@ const Header = () => {
         }
 
         // Получение актуального баланса
-        const balanceResponse = await axios.get("/api/get-balance", {
+        const balanceResponse = await axios.get("/api/v1/get-balance", {
           withCredentials: true,
         });
         const parsedUsdtBalance =
@@ -628,7 +628,7 @@ const Header = () => {
         }
 
         // Получение уведомлений
-        const notificationsResponse = await axios.get("/api/notifications", {
+        const notificationsResponse = await axios.get("/api/v1/notifications", {
           withCredentials: true,
         });
         setNotifications(notificationsResponse.data);
@@ -746,7 +746,7 @@ const Header = () => {
           }));
         }
 
-        const response = await axios.get("/api/get-balance", {
+        const response = await axios.get("/api/v1/get-balance", {
           withCredentials: true,
         });
         const parsedUsdtBalance = parseFloat(response.data.usdtBalance) || 0;
@@ -787,7 +787,7 @@ const Header = () => {
 
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get("/api/notifications", {
+        const response = await axios.get("/api/v1/notifications", {
           withCredentials: true,
         });
         setNotifications(response.data);
@@ -1159,7 +1159,7 @@ const Header = () => {
                   {notification.image && (
                     <div className="notification_thumbnail">
                       <img
-                        src={`https://mmr-client.vercel.app/${notification.image}`}
+                        src={`http://138.124.91.168:8000/${notification.image}`}
                         alt="Notification image"
                         className="thumbnail-image"
                       />
@@ -1202,7 +1202,7 @@ const Header = () => {
               {selectedNotification.image && (
                 <div className="notification-image-container">
                   <img
-                    src={`https://mmr-client.vercel.app/${selectedNotification.image}`}
+                    src={`http://138.124.91.168:8000/${selectedNotification.image}`}
                     alt="Notification image"
                     className="modal_img"
                     onClick={(e) => {
@@ -1249,7 +1249,7 @@ const Header = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={`https://mmr-client.vercel.app/${selectedNotification.image}`}
+                src={`http://138.124.91.168:8000/${selectedNotification.image}`}
                 alt="Fullscreen view"
                 className="fullscreen-image"
                 onClick={(e) => e.stopPropagation()}

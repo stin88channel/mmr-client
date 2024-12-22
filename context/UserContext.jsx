@@ -143,7 +143,7 @@ export function UserContextProvider({ children }) {
     // Загрузка платежных опций
     const loadPaymentOptions = async () => {
         try {
-            const response = await axios.get("/api/payment-options", {
+            const response = await axios.get("/api/v1/payment-options", {
                 withCredentials: true
             });
             console.log('Loaded payment options:', response.data);
@@ -157,7 +157,7 @@ export function UserContextProvider({ children }) {
     const fetchActiveApplications = async () => {
         setLoading(true);
         try {
-          const response = await axios.get("/api/applications?type=active", {
+          const response = await axios.get("/api/v1/applications?type=active", {
             withCredentials: true,
           });
           setActiveTableData(response.data);

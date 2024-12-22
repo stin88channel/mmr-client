@@ -93,7 +93,7 @@ function UserPayments() {
       }
 
       // Затем делаем запрос на сервер
-      const response = await axios.get("/api/payment-options", {
+      const response = await axios.get("/api/v1/payment-options", {
         withCredentials: true,
       });
 
@@ -190,7 +190,7 @@ function UserPayments() {
 
   const updatePaymentOption = async (option, form) => {
     const response = await axios.put(
-      `/api/payment-options/${editPaymentOption._id}`,
+      `/api/v1/payment-options/${editPaymentOption._id}`,
       option,
       {
         withCredentials: true,
@@ -203,7 +203,7 @@ function UserPayments() {
   };
 
   const addPaymentOption = async (option, form) => {
-    const response = await axios.post("/api/payment-options", option, {
+    const response = await axios.post("/api/v1/payment-options", option, {
       withCredentials: true,
     });
 
@@ -227,7 +227,7 @@ function UserPayments() {
 
   const confirmDelete = async () => {
     try {
-      await axios.delete(`/api/payment-options/${deleteConfirmation.id}`, {
+      await axios.delete(`/api/v1/payment-options/${deleteConfirmation.id}`, {
         withCredentials: true,
       });
       await loadPaymentOptions();
@@ -242,7 +242,7 @@ function UserPayments() {
   const handleToggleStatus = async (id) => {
     try {
       const response = await axios.put(
-        `/api/payment-options/${id}/toggle`,
+        `/api/v1/payment-options/${id}/toggle`,
         null,
         {
           withCredentials: true,
