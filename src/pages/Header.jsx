@@ -441,7 +441,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("https://138.124.91.168:8000/account/logout"); // Отправка запроса на выход
+      await axios.post("http://138.124.91.168:8000/account/logout"); // Отправка запроса на выход
       // Очистка состояния пользователя в контексте
       setUser(null); // Предполагается, что setUser   — это функция для обновления состояния пользователя
       // Перенаправление на страницу входа и обновление страницы
@@ -1159,7 +1159,7 @@ const Header = () => {
                   {notification.image && (
                     <div className="notification_thumbnail">
                       <img
-                        src={`https://138.124.91.168:8000/${notification.image}`}
+                        src={`http://138.124.91.168:8000/${notification.image}`}
                         alt="Notification image"
                         className="thumbnail-image"
                       />
@@ -1202,7 +1202,7 @@ const Header = () => {
               {selectedNotification.image && (
                 <div className="notification-image-container">
                   <img
-                    src={`https://138.124.91.168:8000/${selectedNotification.image}`}
+                    src={`http://138.124.91.168:8000/${selectedNotification.image}`}
                     alt="Notification image"
                     className="modal_img"
                     onClick={(e) => {
@@ -1249,7 +1249,7 @@ const Header = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={`https://138.124.91.168:8000/${selectedNotification.image}`}
+                src={`http://138.124.91.168:8000/${selectedNotification.image}`}
                 alt="Fullscreen view"
                 className="fullscreen-image"
                 onClick={(e) => e.stopPropagation()}
