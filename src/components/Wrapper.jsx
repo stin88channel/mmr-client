@@ -35,7 +35,7 @@ const Wrapper = () => {
 
     try {
         // Генерация кастомного URL с использованием UUID
-        const customUrl = `http://localhost:5173/payment/${uuidv4()}`; // Используйте uuid для уникальности
+        const customUrl = `${import.meta.env.BASE_URL}/payment/${uuidv4()}`; // Используйте uuid для уникальности
 
         const response = await axios.post(
             "/api/create-payment-option",

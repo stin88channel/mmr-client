@@ -19,7 +19,7 @@ import AllTables from "./components/AllTables";
 import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "../context/UserContext";
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 axios.defaults.withCredentials = true;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

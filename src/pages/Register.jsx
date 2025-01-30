@@ -26,7 +26,7 @@ export default function Register() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/account/signup",
+        `${import.meta.env.VITE_BASE_URL}/account/signup`,
         {
           login,
           email,
