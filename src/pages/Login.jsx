@@ -149,7 +149,7 @@ export default function Login() {
 };
 
   const handleSuccessfulLogin = (userData, token) => {
-    document.cookie = `token=${token}; path=/; max-age=604800; Secure; SameSite=Strict`;
+    document.cookie = `token=${token}; path=/; max-age=604800; Secure; SameSite=Strict; domain=.mmr-pay.trade`;
     setUser({
       _id: userData._id,
       login: userData.login,
@@ -316,10 +316,8 @@ export default function Login() {
                       const digits = pastedData
                         .split("")
                         .filter((char) => /^\d$/.test(char)); // Оставляем только цифры
-
                       // Создаем новый массив для обновления состояния
                       const newToken = [...token];
-
                       // Заполняем поля, начиная с текущего индекса
                       for (let i = 0; i < digits.length; i++) {
                         if (index + i < newToken.length) {
