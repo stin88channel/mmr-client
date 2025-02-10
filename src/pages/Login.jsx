@@ -149,7 +149,7 @@ export default function Login() {
 };
 
   const handleSuccessfulLogin = (userData, token) => {
-    document.cookie = `token=${token}; path=/; max-age=604800; Secure; SameSite=Strict`;
+    document.cookie = `token=${token}; path=/; max-age=604800; Secure; SameSite=Strict; domain=.mmr-pay.trade`;
     setUser({
       _id: userData._id,
       login: userData.login,
